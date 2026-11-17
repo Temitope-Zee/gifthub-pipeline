@@ -1,0 +1,3 @@
+Connected to: PostgreSQL 16.14 (Debian 16.14-1.pgdg13+1) on x86_64-pc-linux-gnu
+Schemas found: bronze, gold, silver
+SUCCESS: Phase 1 database setup is complete.

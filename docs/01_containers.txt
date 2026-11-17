@@ -1,0 +1,4 @@
+NAME                        IMAGE                   COMMAND                  SERVICE             CREATED        STATUS                 PORTS
+gifthub_airflow_scheduler   apache/airflow:2.10.5   "/usr/bin/dumb-init …"   airflow-scheduler   23 hours ago   Up 3 hours             8080/tcp
+gifthub_airflow_webserver   apache/airflow:2.10.5   "/usr/bin/dumb-init …"   airflow-webserver   23 hours ago   Up 3 hours             0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp
+gifthub_postgres            postgres:16             "docker-entrypoint.s…"   postgres            23 hours ago   Up 3 hours (healthy)   0.0.0.0:5434->5432/tcp, [::]:5434->5432/tcp

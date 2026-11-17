@@ -1,0 +1,9 @@
+      List of schemas
+  Name  |       Owner       
+--------+-------------------
+ bronze | gifthub
+ gold   | gifthub
+ public | pg_database_owner
+ silver | gifthub
+(4 rows)
+
