@@ -1,0 +1,6 @@
+# Python packages for scripts run on your own machine
+pandas
+openpyxl
+SQLAlchemy
+psycopg2-binary
+python-dotenv
