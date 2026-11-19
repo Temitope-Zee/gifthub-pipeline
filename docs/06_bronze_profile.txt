@@ -1,0 +1,88 @@
+1. Total rows and rows per sheet
+  source_sheet  | row_count 
+----------------+-----------
+ Year 2009-2010 |    525461
+ Year 2010-2011 |    541910
+(2 rows)
+
+2. When was this batch loaded?
+           loaded_at           |      source_file      
+-------------------------------+-----------------------
+ 2026-11-19 14:04:25.950993+00 | online_retail_II.xlsx
+(1 row)
+
+3. Missing values per column
+ missing_invoice | missing_stockcode | missing_description | missing_quantity | missing_invoicedate | missing_price | missing_customer_id | missing_country 
+-----------------+-------------------+---------------------+------------------+---------------------+---------------+---------------------+-----------------
+               0 |                 0 |                4382 |                0 |                   0 |             0 |              243007 |               0
+(1 row)
+
+4. Cancelled invoices (invoice starts with C)
+ cancelled_lines 
+-----------------
+           19494
+(1 row)
+
+5. Lines with a negative quantity
+ negative_quantity_lines 
+-------------------------
+                   22950
+(1 row)
+
+6. Exact duplicate rows (same values in every source column)
+ duplicate_rows 
+----------------
+          34335
+(1 row)
+
+7. Date range (dates are text in Bronze; ISO format sorts correctly)
+     first_date      |      last_date      
+---------------------+---------------------
+ 2009-12-01 07:45:00 | 2011-12-09 12:50:00
+(1 row)
+
+8. Top 10 countries by number of lines
+    country     | lines  
+----------------+--------
+ United Kingdom | 981330
+ EIRE           |  17866
+ Germany        |  17624
+ France         |  14330
+ Netherlands    |   5140
+ Spain          |   3811
+ Switzerland    |   3189
+ Belgium        |   3123
+ Portugal       |   2620
+ Australia      |   1913
+(10 rows)
+
+9. Stock codes that are not ordinary products (letters only)
+  stockcode   |         example_description         | lines 
+--------------+-------------------------------------+-------
+ POST         | POSTAGE                             |  2122
+ DOT          | DOTCOM POSTAGE                      |  1446
+ M            | Manual                              |  1421
+ D            | Discount                            |   177
+ S            | SAMPLES                             |   104
+ BANK CHARGES |  Bank Charges                       |   102
+ ADJUST       | Adjustment by john on 26/01/2010 16 |    67
+ AMAZONFEE    | AMAZON FEE                          |    43
+ DCGSSGIRL    | GIRLS PARTY BAG                     |    25
+ DCGSSBOY     | BOYS PARTY BAG                      |    23
+ PADS         | PADS TO MATCH ALL CUSHIONS          |    19
+ CRUK         | CRUK Commission                     |    16
+ B            | Adjust bad debt                     |     6
+ m            | Manual                              |     5
+ DCGSLGIRL    |                                     |     1
+(15 rows)
+
+10. Example of how Customer ID was stored
+ customer_id 
+-------------
+ 13085
+ 13085
+ 13085
+ 13085
+ 13085
+(5 rows)
+
