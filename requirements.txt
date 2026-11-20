@@ -4,3 +4,5 @@ openpyxl
 SQLAlchemy
 psycopg2-binary
 python-dotenv
+dbt-core>=1.12
+dbt-postgres

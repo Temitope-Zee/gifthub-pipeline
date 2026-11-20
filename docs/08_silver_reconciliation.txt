@@ -1,0 +1,56 @@
+1. Row reconciliation: Silver should equal Bronze minus duplicates
+ bronze_rows | duplicates_removed | expected_silver_rows | actual_silver_rows | result 
+-------------+--------------------+----------------------+--------------------+--------
+     1067371 |              34335 |              1033036 |            1033036 | PASS
+(1 row)
+
+2. How many lines carry each label
+ cancelled | adjustments | non_product | unknown_customer | unknown_description | valid_sales 
+-----------+-------------+-------------+------------------+---------------------+-------------
+     19104 |        6019 |        5800 |           235151 |                4275 |     1003357
+(1 row)
+
+3. Revenue: all lines compared with valid sales only (pounds)
+ all_lines_revenue | valid_sales_revenue | cancelled_value 
+-------------------+---------------------+-----------------
+       18855533.70 |         19643861.64 |     -1462050.61
+(1 row)
+
+4. Country fixes worked (should all be 0)
+ eire_left | rsa_left | usa_left | unspecified_left 
+-----------+----------+----------+------------------
+         0 |        0 |        0 |                0
+(1 row)
+
+5. Data types in Silver (no more text-only columns)
+   column_name    |          data_type          
+------------------+-----------------------------
+ sales_line_id    | text
+ invoice          | text
+ stock_code       | text
+ description      | text
+ quantity         | integer
+ unit_price       | numeric
+ line_revenue     | numeric
+ invoiced_at      | timestamp without time zone
+ invoice_date     | date
+ customer_id      | text
+ country          | text
+ is_cancelled     | boolean
+ is_product       | boolean
+ non_product_type | text
+ source_sheet     | text
+ bronze_loaded_at | timestamp with time zone
+ is_adjustment    | boolean
+ is_valid_sale    | boolean
+(18 rows)
+
+6. Non-product lines by type
+ non_product_type | lines |   value    
+------------------+-------+------------
+ fee              |  3941 |  168474.33
+ adjustment       |  1742 | -242229.81
+ voucher          |   100 |    1686.61
+ test             |    17 |     203.50
+(4 rows)
+

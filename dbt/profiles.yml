@@ -1,0 +1,16 @@
+# How dbt connects to the warehouse.
+# No passwords are written here: env_var() reads them from your environment,
+# which is loaded from the .env file before dbt runs. So this file is safe to commit.
+
+gifthub:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST', 'localhost') }}"
+      port: "{{ env_var('POSTGRES_PORT', '5434') | as_number }}"
+      user: "{{ env_var('POSTGRES_USER') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD') }}"
+      dbname: "{{ env_var('POSTGRES_DB') }}"
+      schema: silver        # default schema if a model does not set one
+      threads: 4            # how many models dbt may build at the same time

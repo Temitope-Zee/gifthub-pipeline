@@ -1,0 +1,35 @@
+# dbt project settings for the GiftHub pipeline.
+# dbt reads this file first to learn the project's name, where files live,
+# and how each folder of models should be built.
+
+name: gifthub
+version: "1.0.0"
+profile: gifthub            # which connection to use (defined in profiles.yml)
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+analysis-paths: ["analyses"]
+macro-paths: ["macros"]
+
+target-path: "target"       # where dbt writes compiled SQL (not committed to Git)
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  gifthub:
+    silver:
+      +schema: silver       # models in models/silver/ are built in the silver schema
+      +materialized: table  # each model becomes a real table
+
+seeds:
+  gifthub:
+    +schema: silver         # reference lists are loaded into the silver schema
+    country_mapping:
+      +column_types:        # treat every value as text, never guess a type
+        country_raw: text
+        country_clean: text
+    non_product_codes:
+      +column_types:
+        stock_code: text
+        code_type: text
+        meaning: text

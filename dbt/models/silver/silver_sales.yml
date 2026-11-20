@@ -1,0 +1,60 @@
+version: 2
+
+models:
+  - name: silver_sales
+    description: >
+      Cleaned sales lines from Online Retail II. One row per unique invoice line.
+      Duplicates removed, types converted, and every line labelled so reports can
+      include or exclude cancellations, adjustments and fees.
+    columns:
+      - name: sales_line_id
+        description: "Unique ID for the line (MD5 hash of the raw values)."
+        data_tests:
+          - unique
+          - not_null
+      - name: invoice
+        description: "Invoice number, upper case."
+        data_tests:
+          - not_null
+      - name: stock_code
+        description: "Product or fee code, upper case."
+        data_tests:
+          - not_null
+      - name: description
+        description: "Product name, upper case. 'UNKNOWN PRODUCT' when missing."
+        data_tests:
+          - not_null
+      - name: quantity
+        description: "Units. Negative for cancellations and adjustments."
+      - name: unit_price
+        description: "Price per unit in pounds sterling."
+      - name: line_revenue
+        description: "quantity x unit_price, in pounds sterling."
+      - name: invoiced_at
+        description: "Date and time of the invoice."
+        data_tests:
+          - not_null
+      - name: invoice_date
+        description: "Date part of invoiced_at, for daily and monthly reporting."
+      - name: customer_id
+        description: "Customer number, or 'UNKNOWN' for guest purchases."
+        data_tests:
+          - not_null
+      - name: country
+        description: "Standardised country name (for example EIRE becomes Ireland)."
+        data_tests:
+          - not_null
+      - name: is_cancelled
+        description: "True when the invoice starts with C."
+      - name: is_product
+        description: "False for fees and adjustments listed in seeds/non_product_codes.csv."
+      - name: non_product_type
+        description: "'fee', 'adjustment', 'voucher' or 'test' for non-product codes, otherwise empty."
+      - name: is_adjustment
+        description: "True for non-cancelled lines with negative quantity or zero/negative price."
+      - name: is_valid_sale
+        description: "True for a normal sale: real product, not cancelled, positive quantity and price."
+      - name: source_sheet
+        description: "Excel sheet the row came from."
+      - name: bronze_loaded_at
+        description: "When the row was loaded into Bronze."

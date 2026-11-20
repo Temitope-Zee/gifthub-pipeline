@@ -1,0 +1,34 @@
+# Sources: tables dbt did NOT build but reads from.
+# Declaring Bronze here means models can use {{ source('bronze', 'online_retail') }}
+# instead of a hard-coded table name, and dbt can draw it on the lineage graph.
+
+version: 2
+
+sources:
+  - name: bronze
+    description: "Raw data loaded by ingestion/ingest.py. Every column is text."
+    schema: bronze
+    tables:
+      - name: online_retail
+        description: "Online Retail II transactions, one row per invoice line, exactly as received."
+        columns:
+          - name: invoice
+            description: "Invoice number. Starts with C for a cancellation."
+          - name: stockcode
+            description: "Product code. Some codes are fees, not products."
+          - name: description
+            description: "Product name. Sometimes missing."
+          - name: quantity
+            description: "Units on the line. Negative for cancellations and adjustments."
+          - name: invoicedate
+            description: "Date and time of the invoice, stored as text."
+          - name: price
+            description: "Unit price in pounds sterling, stored as text."
+          - name: customer_id
+            description: "Customer number. Missing for guest purchases."
+          - name: country
+            description: "Country where the customer lives."
+          - name: source_sheet
+            description: "Excel sheet the row came from."
+          - name: loaded_at
+            description: "When ingest.py loaded the batch (UTC)."

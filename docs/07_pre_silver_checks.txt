@@ -1,0 +1,111 @@
+A. Descriptions that are blank spaces (not NULL, but empty after TRIM)
+ blank_descriptions 
+--------------------
+                  0
+(1 row)
+
+B. Unusual stock codes: not 5 digits (+ up to 3 letters), and not letters only
+  stock_code  |         example_description         | lines 
+--------------+-------------------------------------+-------
+ C2           | CARRIAGE                            |   282
+ DCGS0058     | MISO PRETTY  GUM                    |    31
+ GIFT_0001_30 | Dotcomgiftshop Gift Voucher £30.00  |    29
+ GIFT_0001_20 | Dotcomgiftshop Gift Voucher £20.00  |    29
+ GIFT_0001_10 | Dotcomgiftshop Gift Voucher £10.00  |    16
+ TEST001      | This is a test product.             |    15
+ DCGS0076     | SUNJAR LED NIGHT NIGHT LIGHT        |    15
+ DCGS0003     | BOXED GLASS ASHTRAY                 |    14
+ GIFT_0001_50 | Dotcomgiftshop Gift Voucher £50.00  |     8
+ GIFT_0001_40 | Dotcomgiftshop Gift Voucher £40.00  |     7
+ DCGS0069     | ebay                                |     6
+ DCGS0004     | HAYNES CAMPER SHOULDER BAG          |     5
+ GIFT_0001_80 | Dotcomgiftshop Gift Voucher £80.00  |     4
+ DCGS0066N    | NAVY CUDDLES DOG HOODIE             |     4
+ DCGS0072     | CAT CAMOUFLAGUE COLLAR              |     4
+ DCGS0068     | DOGS NIGHT COLLAR                   |     3
+ GIFT_0001_70 | Dotcomgiftshop Gift Voucher £70.00  |     3
+ SP1002       | KID'S CHALKBOARD/EASEL              |     3
+ ADJUST2      | Adjustment by Peter on Jun 25 2010  |     3
+ DCGS0070     | CAMOUFLAGE DOG COLLAR               |     3
+ DCGS0062     | ROAD-RAGE CAR FRESHENER             |     2
+ GIFT_0001_90 |                                     |     2
+ GIFT_0001_60 |                                     |     2
+ DCGS0037     | KEY-RING CORKSCREW                  |     2
+ TEST002      | This is a test product.             |     2
+ DCGS0071     |                                     |     1
+ C3           |                                     |     1
+ DCGS0006     |                                     |     1
+ DCGS0016     |                                     |     1
+ DCGS0027     |                                     |     1
+ DCGS0036     |                                     |     1
+ DCGS0039     |                                     |     1
+ DCGS0041     | HAYNES MINI-COOPER PLAYING CARDS    |     1
+ DCGS0044     | HANDZ-OFF CAR FRESHENER             |     1
+ DCGS0053     |                                     |     1
+ DCGS0055     |                                     |     1
+ DCGS0056     |                                     |     1
+ DCGS0057     |                                     |     1
+ DCGS0059     |                                     |     1
+ DCGS0060     |                                     |     1
+(40 rows)
+
+C. Every country name, alphabetically
+       country        | lines  
+----------------------+--------
+ Australia            |   1913
+ Austria              |    938
+ Bahrain              |    126
+ Belgium              |   3123
+ Bermuda              |     34
+ Brazil               |     94
+ Canada               |    228
+ Channel Islands      |   1664
+ Cyprus               |   1176
+ Czech Republic       |     30
+ Denmark              |    817
+ EIRE                 |  17866
+ European Community   |     61
+ Finland              |   1049
+ France               |  14330
+ Germany              |  17624
+ Greece               |    663
+ Hong Kong            |    364
+ Iceland              |    253
+ Israel               |    371
+ Italy                |   1534
+ Japan                |    582
+ Korea                |     63
+ Lebanon              |     58
+ Lithuania            |    189
+ Malta                |    299
+ Netherlands          |   5140
+ Nigeria              |     32
+ Norway               |   1455
+ Poland               |    535
+ Portugal             |   2620
+ RSA                  |    169
+ Saudi Arabia         |     10
+ Singapore            |    346
+ Spain                |   3811
+ Sweden               |   1364
+ Switzerland          |   3189
+ Thailand             |     76
+ United Arab Emirates |    500
+ United Kingdom       | 981330
+ Unspecified          |    756
+ USA                  |    535
+ West Indies          |     54
+(43 rows)
+
+D. Duplicate groups that appear in BOTH Excel sheets
+ duplicate_groups_across_sheets 
+--------------------------------
+                          22202
+(1 row)
+
+E. Lines with zero or negative price
+ zero_price_lines | negative_price_lines 
+------------------+----------------------
+             6202 |                    5
+(1 row)
+

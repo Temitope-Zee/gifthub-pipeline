@@ -9,7 +9,7 @@ An end-to-end data engineering project that turns raw UK online retail sales dat
 
 - [x] Phase 1: Environment setup
 - [x] Phase 2: Ingestion (Bronze)
-- [ ] Phase 3: Cleaning (Silver)
+- [x] Phase 3: Cleaning (Silver)
 - [ ] Phase 4: Modelling (Gold)
 - [ ] Phase 5: Data quality
 - [ ] Phase 6: Orchestration
